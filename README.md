@@ -40,8 +40,8 @@ $$t_{start}^{*} = \arg \min_{t_{start} \in \mathbf{T}} \left( \max_{d \in \mathb
 
 | Variante | Approccio | Complessità |
 |----------|-----------|-------------|
-| **2.a Unsorted** | Linear Scan | O(T · D · Σ S_i) |
-| **2.b Sorted** | Binary Search | O(T · D · Σ log S_i) |
+| **2.a Unsorted** | Linear Scan | O(T · D · Σ $ S_i $) |
+| **2.b Sorted** | Binary Search | O(T · D · Σ log $ S_i $)  |
 
 ## Struttura del Repository
 
@@ -49,7 +49,11 @@ $$t_{start}^{*} = \arg \min_{t_{start} \in \mathbf{T}} \left( \max_{d \in \mathb
 robust-organ-scheduler/
 ├── README.md                      # Questo file
 ├── requirements.txt               # Dipendenze Python
-└── robust_organ_scheduler.ipynb   # Notebook principale con implementazione e analisi
+├── robust_organ_scheduler.ipynb   # Notebook principale con implementazione e analisi
+└── results/                       # Risultati dei test e grafici generati
+    ├── figures/                   # Immagini salvate (boxplot, istogrammi)
+    ├── risultati_test_standard.json
+    └── risultati_test_densita_ridotta.json
 ```
 
 ## Installazione e Utilizzo
@@ -85,6 +89,16 @@ Puoi eseguire il notebook direttamente su Google Colab cliccando sul badge in ci
 4. **Generazione Scenari**: Funzione per creare dataset sintetici di dimensioni arbitrarie
 5. **Analisi Sperimentale**: Stress-test con 50 ripetizioni per configurazione
 6. **Discussione Risultati**: Confronto prestazionale e conclusioni
+
+## Limitazioni del Modello
+
+Il modello sviluppato rappresenta una **semplificazione della realtà operativa**.
+
+* **Dati Sintetici**: Gli orari di partenza e le durate sono stati generati artificialmente e potrebbero non riflettere la complessità delle reali disponibilità logistiche.
+* **Vincoli Operativi**: Non sono stati considerati vincoli reali come i tempi di ischemia fredda massimi tollerabili per ciascun organo, la disponibilità delle sale operatorie o il coordinamento con le équipe di prelievo.
+* **Incertezza**: L'incertezza è stata modellata solo sulla durata dell'intervento, mentre nella realtà esistono molteplici fonti di aleatorietà.
+
+Pertanto, i risultati devono essere interpretati come una dimostrazione concettuale (Proof of Concept).
 
 ## Risultati Principali
 
